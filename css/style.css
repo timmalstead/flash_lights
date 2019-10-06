@@ -2,62 +2,12 @@ body {
     background-color: #151515;
     height: 99vh;
     color: #fffff8;
-    /* border: 1px solid #888; */
+    border: 1px solid #888;
     display: flex; flex-flow: column;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 2.5vw;
 }
 
-@media (max-width: 1340px) {
-    body {
-        font-size: 2.65vw;
-    }
-}
-@media (max-width: 1240px) {
-    body {
-        font-size: 2.80vw;
-    }
-}
-
-@media (max-width: 1140px) {
-    body {
-        font-size: 2.95vw;
-    }
-}
-
-@media (max-width: 1040px) {
-    body {
-        font-size: 3.1vw;
-    }
-}
-
-@media (max-width: 940px) {
-    body {
-        font-size: 3.25vw;
-    }
-}
-
-@media (max-width: 840px) {
-    body {
-        font-size: 3.4vw;
-    }
-}
-
-@media (max-width: 740px) {
-    footer {
-        flex-flow: column;
-    }
-    #info {
-        width: 58vw;
-        align-self: center;
-        font-size: 4.5vw;
-        display: flex; justify-content: space-between;
-    }
-    nav {
-        align-self: center;
-        font-size: 3.6vw;
-    }
-}
-img {
+#titleBar {
     border: inherit;
     width: 100%;
 }
@@ -91,4 +41,106 @@ nav {
 bdi {
     border: inherit;
     color: #ffe888;
+}
+
+a {
+    outline: none;
+    color: #ffe888;
+    text-decoration: none;
+}
+
+#mailIcon, #instaIcon {
+    width:2vw;
+}
+
+@media (max-width: 1340px) {
+    body {
+        font-size: 2.65vw;
+    }
+    #mailIcon, #instaIcon {
+        width:2.15vw;
+    }
+}
+@media (max-width: 1240px) {
+    body {
+        font-size: 2.80vw;
+    }
+    #mailIcon, #instaIcon {
+        width:2.3vw;
+    }
+}
+
+@media (max-width: 1140px) {
+    body {
+        font-size: 2.95vw;
+    }
+    #mailIcon, #instaIcon {
+        width:2.45vw;
+    }
+}
+
+@media (max-width: 1040px) {
+    body {
+        font-size: 3.1vw;
+    }
+    #mailIcon, #instaIcon {
+        width:2.6vw;
+    }
+}
+
+@media (max-width: 940px) {
+    footer {
+        flex-flow: column;
+    }
+    #info {
+        width: 50vw;
+        align-self: center;
+        font-size: 4vw;
+        display: flex; justify-content: space-between;
+    }
+    nav {
+        align-self: center;
+        font-size: 3.75vw;
+    }
+    #mailIcon, #instaIcon {
+        width:2.75vw;
+    }
+}
+
+@media (max-width: 840px) {
+   footer {
+        flex-flow: column;
+    }
+    #info {
+        width: 55vw;
+        align-self: center;
+        font-size: 4vw;
+        display: flex; justify-content: space-between;
+    }
+    nav {
+        align-self: center;
+        font-size: 3.9vw;
+    }
+    #mailIcon, #instaIcon {
+        width:2.9vw;
+    }
+}
+
+@media (max-width: 740px) {
+    footer {
+        flex-flow: column;
+    }
+    #info {
+        width: 60vw;
+        align-self: center;
+        font-size: 4.5vw;
+        display: flex; justify-content: space-between;
+    }
+    nav {
+        align-self: center;
+        font-size: 5vw;
+    }
+    #mailIcon, #instaIcon {
+        width:4vw;
+    }
 }

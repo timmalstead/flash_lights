@@ -4,41 +4,41 @@ body {
     color: #fffff8;
     /* border: 1px solid #888; */
     display: flex; flex-flow: column;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 2vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 2.5vw;
 }
 
 @media (max-width: 1340px) {
     body {
-        font-size: 2.15vw;
+        font-size: 2.65vw;
     }
 }
 @media (max-width: 1240px) {
     body {
-        font-size: 2.30vw;
+        font-size: 2.80vw;
     }
 }
 
 @media (max-width: 1140px) {
     body {
-        font-size: 2.45vw;
+        font-size: 2.95vw;
     }
 }
 
 @media (max-width: 1040px) {
     body {
-        font-size: 2.60vw;
+        font-size: 3.1vw;
     }
 }
 
 @media (max-width: 940px) {
     body {
-        font-size: 2.75vw;
+        font-size: 3.25vw;
     }
 }
 
 @media (max-width: 840px) {
     body {
-        font-size: 2.9vw;
+        font-size: 3.4vw;
     }
 }
 
@@ -47,8 +47,10 @@ body {
         flex-flow: column;
     }
     #info {
+        width: 58vw;
         align-self: center;
-        font-size: 5vw;
+        font-size: 4.5vw;
+        display: flex; justify-content: space-between;
     }
     nav {
         align-self: center;
@@ -84,4 +86,9 @@ span {
 
 nav {
     border: inherit;
+}
+
+bdi {
+    border: inherit;
+    color: #fff1b4;
 }

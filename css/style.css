@@ -44,7 +44,6 @@ body {
 
 @media (max-width: 740px) {
     footer {
-        display: flex; 
         flex-flow: column;
     }
     #info {

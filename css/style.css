@@ -2,50 +2,32 @@ body {
     background-color: #151515;
     height: 99vh;
     color: #fffff8;
-    border: 1px solid #888;
     display: flex; flex-flow: column;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 2.5vw;
 }
 
 #titleBar {
-    border: inherit;
     width: 100%;
 }
 
 main {
-    border: inherit;
     width: 100%;
     flex: 1;
     display: flex; flex-wrap: wrap;
-    /* overflow: auto; */
 }
 
 footer {
-    border: inherit;
     display: flex; justify-content: space-between;
     width: 100%;
 }
 
-#info {
-    border: inherit;
-}
-
-span {
-    border: inherit;
-}
-
-nav {
-    border: inherit;
-}
-
 bdi {
-    border: inherit;
     color: #ffe888;
 }
 
 a {
-    outline: none;
     color: #ffe888;
+    outline: none;
     text-decoration: none;
 }
 

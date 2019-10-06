@@ -43,23 +43,19 @@ body {
 }
 
 @media (max-width: 740px) {
-    body {
-        font-size: 3.05vw;
+    footer {
+        display: flex; 
+        flex-flow: column;
+    }
+    #info {
+        align-self: center;
+        font-size: 5vw;
+    }
+    nav {
+        align-self: center;
+        font-size: 3.6vw;
     }
 }
-
-@media (max-width: 640px) {
-    body {
-        font-size: 3.2vw;
-    }
-}
-
-@media (max-width: 540px) {
-    body {
-        font-size: 3.35vw;
-    }
-}
-
 img {
     border: inherit;
     width: 100%;

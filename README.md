@@ -32,3 +32,7 @@ In addition to the three main front end web languages, HTML, CSS and JavaScript;
 #### Known Issues
 
 None at current
+
+#### Special Thanks
+
+Andrew Singer for graciously providing in game sounds

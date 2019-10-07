@@ -75,36 +75,44 @@ a {
         flex-flow: column;
     }
     #info {
-        width: 50vw;
-        align-self: center;
-        font-size: 4vw;
+        width: 72vw;
+        align-self: flex-start;
+        font-size: 4.5vw;
         display: flex; justify-content: space-between;
+        position: absolute;
+        top: 84vh;
     }
     nav {
-        align-self: center;
-        font-size: 3.75vw;
+        align-self: flex-start;
+        font-size: 4.5vw;
+        position: absolute;
+        top: 84vh;
     }
     #mailIcon, #instaIcon {
-        width:2.75vw;
+        width:10vw;
     }
 }
 
 @media (max-width: 840px) {
-   footer {
+    footer {
         flex-flow: column;
     }
     #info {
-        width: 55vw;
-        align-self: center;
-        font-size: 4vw;
+        width: 72vw;
+        align-self: flex-start;
+        font-size: 4.5vw;
         display: flex; justify-content: space-between;
+        position: absolute;
+        top: 84vh;
     }
     nav {
-        align-self: center;
-        font-size: 3.9vw;
+        align-self: flex-start;
+        font-size: 4.5vw;
+        position: absolute;
+        top: 84vh;
     }
     #mailIcon, #instaIcon {
-        width:2.9vw;
+        width:10vw;
     }
 }
 
@@ -113,16 +121,66 @@ a {
         flex-flow: column;
     }
     #info {
-        width: 60vw;
-        align-self: center;
+        width: 72vw;
+        align-self: flex-start;
         font-size: 4.5vw;
         display: flex; justify-content: space-between;
+        position: absolute;
+        top: 88vh;
     }
     nav {
-        align-self: center;
-        font-size: 5vw;
+        align-self: flex-start;
+        font-size: 4.5vw;
+        position: absolute;
+        top: 88vh;
     }
     #mailIcon, #instaIcon {
-        width:4vw;
+        width:10vw;
+    }
+}
+
+@media (max-width: 640px) {
+    footer {
+        flex-flow: column;
+    }
+    #info {
+        width: 72vw;
+        align-self: flex-start;
+        font-size: 4.5vw;
+        display: flex; justify-content: space-between;
+        position: absolute;
+        top: 90vh;
+    }
+    nav {
+        align-self: flex-start;
+        font-size: 4.5vw;
+        position: absolute;
+        top: 90vh;
+    }
+    #mailIcon, #instaIcon {
+        width:10vw;
+    }
+}
+
+@media (max-width: 540px) {
+    footer {
+        flex-flow: column;
+    }
+    #info {
+        width: 72vw;
+        align-self: flex-start;
+        font-size: 4.5vw;
+        display: flex; justify-content: space-between;
+        position: absolute;
+        top: 92vh;
+    }
+    nav {
+        align-self: flex-start;
+        font-size: 4.5vw;
+        position: absolute;
+        top: 92vh;
+    }
+    #mailIcon, #instaIcon {
+        width:10vw;
     }
 }

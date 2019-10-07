@@ -6,7 +6,7 @@ const $lives = $("#lives")
 
 const game = {
 
-level : 1,
+level : 2,
 
 round : 1,
 
@@ -14,15 +14,15 @@ lives : 3,
 
 setUpLevel() {
     if (this.level === 1) {
-        this.setTiles(4, "48", "48.5")
+        this.setTiles(4, "48", "46")
         }
 
     else if (this.level === 2) {
-        this.setTiles(8, "48", "24.25")
+        this.setTiles(8, "48", "23")
         }
 
     else if (this.level === 3) {
-        this.setTiles(16, "24", "24.25")
+        this.setTiles(16, "24", "23")
         }
 
     $level.text(this.level)
@@ -30,11 +30,19 @@ setUpLevel() {
     $round.text(this.round)
 
     $lives.text(this.lives)
+
     },
 
-setTiles(numberOfTiles, width, height) {
-    for (let i = 0; i < numberOfTiles; i++) {
-        const $tile = $("<div/>")
+setTiles(numberOfTiles, width, height) { 
+        
+        let tileCounter = 0
+
+        const boardInterval = setInterval(() => {
+        if (tileCounter === numberOfTiles) {
+            clearInterval(boardInterval)
+        } else {
+                for (let i = 0; i < 1; i++) {
+        const $tile = $(`<div/ class="animated pulse">`)
 
         const random = Math.floor(Math.random() * 4)
 
@@ -60,8 +68,33 @@ setTiles(numberOfTiles, width, height) {
 
         $tile.css("borderRadius", "15%")
 
-        $("main").append($tile)
+        if (this.level === 3) {
+            $tile.css("margin", "0 .4%")
         }
+
+        else {
+            $tile.css("margin", "0 1%")
+        }
+
+        $tile.hover(function(){
+            $tile.css("opacity", ".5")
+        }, function(){
+            $tile.css("opacity", "1")
+        })
+
+        $tile.active(function(){
+            $tile.css("opacity", ".5")
+        }, function(){
+            $tile.css("opacity", "1")
+        })
+
+        $("main").append($tile)
+
+        tileCounter++
+
+                }
+            }
+        }, 250)
     }
 }
 

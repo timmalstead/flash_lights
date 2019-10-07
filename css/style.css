@@ -8,12 +8,15 @@ body {
 
 #titleBar {
     width: 100%;
+    margin-bottom: 1vh;
 }
 
 main {
     width: 100%;
     flex: 1;
-    display: flex; flex-wrap: wrap; justify-content: space-evenly; align-items: center;
+    display: flex; flex-wrap: wrap; 
+    /* justify-content: space-evenly; */
+    /* align-items: flex-start; */
 }
 
 footer {

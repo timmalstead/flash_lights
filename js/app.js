@@ -6,7 +6,7 @@ const $lives = $("#lives")
 
 const game = {
 
-level : 2,
+level : 1,
 
 round : 1,
 
@@ -77,12 +77,6 @@ setTiles(numberOfTiles, width, height) {
         }
 
         $tile.hover(function(){
-            $tile.css("opacity", ".5")
-        }, function(){
-            $tile.css("opacity", "1")
-        })
-
-        $tile.active(function(){
             $tile.css("opacity", ".5")
         }, function(){
             $tile.css("opacity", "1")

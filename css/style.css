@@ -62,11 +62,25 @@ a {
 }
 
 @media (max-width: 1040px) {
-    body {
-        font-size: 3.1vw;
+    footer {
+        flex-flow: column;
+    }
+    #info {
+        width: 72vw;
+        align-self: flex-start;
+        font-size: 4.5vw;
+        display: flex; justify-content: space-between;
+        position: absolute;
+        top: 82vh;
+    }
+    nav {
+        align-self: flex-start;
+        font-size: 4.5vw;
+        position: absolute;
+        top: 82vh;
     }
     #mailIcon, #instaIcon {
-        width:2.6vw;
+        width:10vw;
     }
 }
 
@@ -103,13 +117,13 @@ a {
         font-size: 4.5vw;
         display: flex; justify-content: space-between;
         position: absolute;
-        top: 84vh;
+        top: 86vh;
     }
     nav {
         align-self: flex-start;
         font-size: 4.5vw;
         position: absolute;
-        top: 84vh;
+        top: 86vh;
     }
     #mailIcon, #instaIcon {
         width:10vw;

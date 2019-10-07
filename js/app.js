@@ -4,6 +4,8 @@ const $round = $("#round")
 
 const $lives = $("#lives")
 
+const pattern = []
+
 const game = {
 
 level : 1,
@@ -15,14 +17,18 @@ lives : 3,
 setUpLevel() {
     if (this.level === 1) {
         this.setTiles(4, "48", "46")
+        setTimeout(() => $("div").removeClass(), 3000)
+        this.displayRandomPattern(4)
         }
 
     else if (this.level === 2) {
         this.setTiles(8, "48", "23")
+        setTimeout(() => $("div").removeClass(), 4000)
         }
 
     else if (this.level === 3) {
         this.setTiles(16, "24", "23")
+        setTimeout(() => $("div").removeClass(), 8000)
         }
 
     $level.text(this.level)
@@ -31,6 +37,7 @@ setUpLevel() {
 
     $lives.text(this.lives)
 
+    return
     },
 
 setTiles(numberOfTiles, width, height) { 
@@ -41,8 +48,8 @@ setTiles(numberOfTiles, width, height) {
         if (tileCounter === numberOfTiles) {
             clearInterval(boardInterval)
         } else {
-                for (let i = 0; i < 1; i++) {
-        const $tile = $(`<div/ class="animated pulse">`)
+
+        const $tile = $(`<div/>`)
 
         const random = Math.floor(Math.random() * 4)
 
@@ -68,6 +75,8 @@ setTiles(numberOfTiles, width, height) {
 
         $tile.css("borderRadius", "15%")
 
+        $tile.attr("class", "animated zoomIn")
+
         if (this.level === 3) {
             $tile.css("margin", "0 .4%")
         }
@@ -85,11 +94,35 @@ setTiles(numberOfTiles, width, height) {
         $("main").append($tile)
 
         tileCounter++
-
-                }
             }
         }, 250)
+    },
+
+displayRandomPattern(numberOfTiles) {
+        let tileCounter = 0
+        const patternInterval = setInterval(() => {
+        if (tileCounter === numberOfTiles) {
+            clearInterval(patternInterval)
+            }
+        else {
+            const random = Math.floor(Math.random() * numberOfTiles)
+            $("div").eq(random).attr("class", "animated zoomIn")
+            tileCounter++
+            }
+        }, 500);
     }
 }
 
 game.setUpLevel()
+
+$("#titleBar").on("click", () => {
+    if (game.level === 1) {
+        game.displayRandomPattern(4)
+    }
+    else if (game.level === 2) {
+        game.displayRandomPattern(8)
+    }
+    else if (game.level === 3) {
+        game.displayRandomPattern(16)
+    }
+  })

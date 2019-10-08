@@ -21,17 +21,18 @@ lives : 3,
 setUpLevel() {
     if (this.level === 1) {
         this.setTiles(4, "48", "46")
-        setTimeout(() => $("div").removeClass(), 3000)
+        setTimeout(() => $(".animated").removeClass(), 3000)
+        this.modals()
         }
 
     else if (this.level === 2) {
         this.setTiles(8, "48", "23")
-        setTimeout(() => $("div").removeClass(), 4000)
+        setTimeout(() => $(".animated").removeClass(), 4000)
         }
 
     else if (this.level === 3) {
         this.setTiles(16, "24", "23")
-        setTimeout(() => $("div").removeClass(), 8000)
+        setTimeout(() => $(".animated").removeClass(), 8000)
         }
 
     $level.text(this.level)
@@ -118,7 +119,7 @@ displayRandomPattern(numberOfTiles) {
                 clearInterval(patternInterval)
             } else {
                 $("div").eq(pattern[0]).attr("class", "animated flash")
-                setTimeout(() => $("div").removeClass(), 500)
+                setTimeout(() => $(".animated").removeClass(), 500)
                 pattern.shift(0)
             }
         }, 1000)
@@ -126,7 +127,19 @@ displayRandomPattern(numberOfTiles) {
         console.log(patternCheck)
     },
 modals() {
-            
+    if (this.firstPlay === true) {
+        const $open = $("#openModal")
+        const $modal = $(".modal")
+        setTimeout(() => {
+            $open.attr("class", "animated bounceInDown")
+            $open.css("display", "block")
+        }, 3000)
+        $open.removeClass()
+        $modal.on("click", () => {
+            $open.attr("class", "animated bounceOutDown")
+            setTimeout(() => $open.css("display", "none"), 1000)
+            })
+        }
     }
 }
 

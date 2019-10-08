@@ -36,12 +36,38 @@ a {
     width:2vw;
 }
 
+.modal {
+    background-color: #15151500;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+}
+
+.modalContent {
+    background-color: #151515;
+    border: 2em solid #151515;
+    width: 20%;
+    position: fixed;
+    top:20%;
+    left:37.5%;
+    text-align: center; font-size: 1.25vw;
+}
+
+#openModal {
+    display: none;
+}
+
 @media (max-width: 1340px) {
     body {
         font-size: 2.65vw;
     }
     #mailIcon, #instaIcon {
         width:2.15vw;
+    }
+    
+    .modalContent { 
+        font-size: 1.28vw;
     }
 }
 @media (max-width: 1240px) {
@@ -51,6 +77,9 @@ a {
     #mailIcon, #instaIcon {
         width:2.3vw;
     }
+    .modalContent { 
+        font-size: 1.31vw;
+    }
 }
 
 @media (max-width: 1140px) {
@@ -59,6 +88,9 @@ a {
     }
     #mailIcon, #instaIcon {
         width:2.45vw;
+    }
+    .modalContent { 
+        font-size: 1.34vw;
     }
 }
 
@@ -87,6 +119,9 @@ a {
         flex: none;
         height: 71vh;
     } 
+    .modalContent { 
+        font-size: 1.4vw;
+    }
 }
 
 @media (max-width: 940px) {
@@ -113,6 +148,9 @@ a {
     main {
         flex: none;
         height: 74vh;
+    }
+    .modalContent { 
+        font-size: 1.45vw;
     } 
 }
 
@@ -141,6 +179,12 @@ a {
         flex: none;
         height: 77vh;
     } 
+    .modalContent { 
+        font-size: 1.55vw;
+        width: 25%;
+        left:32.5%;
+
+    } 
 }
 
 @media (max-width: 740px) {
@@ -168,7 +212,13 @@ a {
     main {
         flex: none;
         height: 80vh;
-    }  
+    }
+    .modalContent { 
+        font-size: 1.8vw;
+        top:20%;
+        width: 30%;
+        left:30%;
+    } 
 }
 
 @media (max-width: 640px) {
@@ -195,7 +245,13 @@ a {
     main {
         flex: none;
         height: 83vh;
-    }   
+    }
+    .modalContent { 
+        font-size: 2.1vw;
+        top:17.5%;
+        width: 35%;
+        left:27.5%;
+    } 
 }
 
 @media (max-width: 540px) {
@@ -224,4 +280,10 @@ a {
         flex: none;
         height: 86vh;
     }   
+    .modalContent { 
+        font-size: 2.5vw;
+        top:20%;
+        width: 40%;
+        left:25%;
+    } 
 }

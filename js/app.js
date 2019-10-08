@@ -6,6 +6,8 @@ const $lives = $("#lives")
 
 const pattern = []
 
+const patternCheck = []
+
 const game = {
 
 level : 1,
@@ -18,7 +20,6 @@ setUpLevel() {
     if (this.level === 1) {
         this.setTiles(4, "48", "46")
         setTimeout(() => $("div").removeClass(), 3000)
-        this.displayRandomPattern(4)
         }
 
     else if (this.level === 2) {
@@ -37,7 +38,6 @@ setUpLevel() {
 
     $lives.text(this.lives)
 
-    return
     },
 
 setTiles(numberOfTiles, width, height) { 
@@ -99,17 +99,26 @@ setTiles(numberOfTiles, width, height) {
     },
 
 displayRandomPattern(numberOfTiles) {
-        let tileCounter = 0
-        const patternInterval = setInterval(() => {
-        if (tileCounter === numberOfTiles) {
-            clearInterval(patternInterval)
-            }
-        else {
+        const flashNumber = Math.floor(Math.random() * numberOfTiles)
+        for (let i = 0; i < flashNumber; i++){
+
             const random = Math.floor(Math.random() * numberOfTiles)
-            $("div").eq(random).attr("class", "animated zoomIn")
-            tileCounter++
+            
+            if (pattern[i] !== random && pattern[i-1] !== random && pattern[i+1] !== random) {
+                pattern.push(random)
+                patternCheck.push(random)
             }
-        }, 500);
+
+        }
+        const patternInterval = setInterval(() => {
+            if (pattern.length === 0) {
+                clearInterval(patternInterval)
+            } else {
+                $("div").eq(pattern[0]).attr("class", "animated zoomIn")
+                setTimeout(() => $("div").removeClass(), 500)
+                pattern.shift(0)
+            }
+        }, 1000)
     }
 }
 
@@ -125,4 +134,9 @@ $("#titleBar").on("click", () => {
     else if (game.level === 3) {
         game.displayRandomPattern(16)
     }
+  })
+
+  $("main").on("click", () => {
+      console.log(pattern)
+      console.log(patternCheck)
   })

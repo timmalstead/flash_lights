@@ -10,6 +10,8 @@ const patternCheck = []
 
 const game = {
 
+firstPlay : true,
+
 level : 1,
 
 round : 1,
@@ -104,9 +106,10 @@ displayRandomPattern(numberOfTiles) {
 
             const random = Math.floor(Math.random() * numberOfTiles)
             
-            if (pattern[i] !== random && pattern[i-1] !== random && pattern[i+1] !== random) {
+            if (pattern.length === 0 || pattern[i] !== random && pattern[i-1] !== random && pattern[i+1] !== random) {
                 pattern.push(random)
                 patternCheck.push(random)
+                console.log(random)
             }
 
         }
@@ -114,17 +117,22 @@ displayRandomPattern(numberOfTiles) {
             if (pattern.length === 0) {
                 clearInterval(patternInterval)
             } else {
-                $("div").eq(pattern[0]).attr("class", "animated zoomIn")
+                $("div").eq(pattern[0]).attr("class", "animated flash")
                 setTimeout(() => $("div").removeClass(), 500)
                 pattern.shift(0)
             }
         }, 1000)
+        console.log(pattern)
+        console.log(patternCheck)
+    },
+modals() {
+            
     }
 }
 
 game.setUpLevel()
 
-$("#titleBar").on("click", () => {
+$("#titleBar").on("dblclick", () => {
     if (game.level === 1) {
         game.displayRandomPattern(4)
     }
@@ -136,7 +144,12 @@ $("#titleBar").on("click", () => {
     }
   })
 
-  $("main").on("click", () => {
-      console.log(pattern)
-      console.log(patternCheck)
-  })
+  //okey doke, next things to set up are the modals
+  //one modal at the start to announce the rules, one to tell the user that they are going to see a random pattern and one to tell them to recreate it.
+  //have to make a function to check the reproduction of the pattern by user
+  //have to figure out way to go through levels, rounds and deal with lives, add replay option etc
+  //add opening animation, see if you can't suss out shine effect from animate.css splash page
+  //add sounds?
+  //add backend for highscore?
+  //add social share?
+  //additional mechanics? I even wanna mess with that?

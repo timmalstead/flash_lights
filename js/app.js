@@ -10,11 +10,9 @@ const patternCheck = []
 
 const game = {
 
-firstPlay : true,
+userTurn : false,
 
-firstRound : true,
-
-level : 2,
+level : 1,
 
 round : 1,
 
@@ -25,7 +23,7 @@ setUpLevel() {
         this.setTiles(4, "48", "46")
         setTimeout(() => {
             $(".animated").removeClass()
-            this.modals()
+            this.openModal()
         }, 2000)
     }
 
@@ -33,7 +31,7 @@ setUpLevel() {
         this.setTiles(8, "48", "23")
         setTimeout(() => {
             $(".animated").removeClass()
-            this.modals()
+            this.openModal()
         }, 3000)
     }
 
@@ -41,7 +39,7 @@ setUpLevel() {
         this.setTiles(16, "24", "23")
         setTimeout(() => {
             $(".animated").removeClass()
-            this.modals()
+            this.openModal()
         }, 5000)
     }
 
@@ -98,11 +96,11 @@ setTiles(numberOfTiles, width, height) {
             $tile.css("margin", "0 1%")
         }
 
-        // $tile.hover(function(){
-        //     $tile.css("opacity", ".5")
-        // }, function(){
-        //     $tile.css("opacity", "1")
-        // })
+        $tile.hover(function(){
+            $tile.css("opacity", ".5")
+        }, function(){
+            $tile.css("opacity", "1")
+        })
 
         $("main").append($tile)
 
@@ -122,85 +120,76 @@ displayRandomPattern() {
         else if (this.level === 3){
             numberOfTiles = 16
         }
-        const flashNumber = Math.floor(Math.random() * numberOfTiles)
+
+        let flashNumber = Math.floor(Math.random() * numberOfTiles)
+
+        if (flashNumber === 0) {
+            flashNumber = 1
+        }
         for (let i = 0; i < flashNumber; i++){
 
-            const random = Math.floor(Math.random() * numberOfTiles)
+            let random = Math.floor(Math.random() * numberOfTiles)
             
+            if (random === 0) {
+                random = 1
+            }
+
             if (pattern.length === 0 || pattern[i] !== random && pattern[i-1] !== random && pattern[i+1] !== random) {
                 pattern.push(random)
                 patternCheck.push(random)
-                console.log(random)
             }
 
         }
         const patternInterval = setInterval(() => {
             if (pattern.length === 0) {
                 clearInterval(patternInterval)
+                this.userTurn = true
+                this.secondModal()
             } else {
                 $("div").eq(pattern[0]).attr("class", "animated flash")
                 setTimeout(() => $(".animated").removeClass(), 500)
                 pattern.shift(0)
             }
         }, 1000)
-        console.log(pattern)
-        console.log(patternCheck)
-        setTimeout(() => this.modals(), patternCheck.length * 1000 + 500)
     },
-modals() {
-    if (this.firstPlay === true) {
+openModal() {
         const $open = $("#openModal")
-        const $modal = $(".modal")
         setTimeout(() => {
             $open.attr("class", "animated bounceInDown")
             $open.css("display", "block")
         }, 1000)
         $open.removeClass()
-        $modal.on("click", () => {
+        $open.on("click", () => {
             $open.attr("class", "animated bounceOutDown")
             setTimeout(() => $open.css("display", "none"), 1000)
             setTimeout(() => $open.removeClass(), 1000)
             setTimeout(() => $open.attr("class", "modal"), 1000)
-            this.firstPlay = false
             this.displayRandomPattern()
             })
-        }
-    else if (this.firstPlay === false){
+    },
+secondModal() {
         const $first = $("#firstTurn")
-        const $modal = $(".modal")
         setTimeout(() => {
             $first.attr("class", "animated bounceInDown")
             $first.css("display", "block")
         }, 1000)
         $first.removeClass()
-        $modal.on("click", () => {
+        $first.on("click", () => {
             $first.attr("class", "animated bounceOutDown")
             setTimeout(() => $first.css("display", "none"), 1000)
             setTimeout(() => $first.removeClass(), 1000)
             setTimeout(() => $first.attr("class", "modal"), 1000)
             this.firstRound = false
-            this.displayRandomPattern()
-            })
-        }
+            this.checkInput()
+            })       
+},
+checkInput() {
+    console.log('does this work at all')
     }
 }
 
 game.setUpLevel()
 
-// $("#titleBar").on("dblclick", () => {
-//     if (game.level === 1) {
-//         game.displayRandomPattern(4)
-//     }
-//     else if (game.level === 2) {
-//         game.displayRandomPattern(8)
-//     }
-//     else if (game.level === 3) {
-//         game.displayRandomPattern(16)
-//     }
-//   })
-
-  //okey doke, next things to set up are the modals
-  //one modal at the start to announce the rules, one to tell the user that they are going to see a random pattern and one to tell them to recreate it.
   //have to make a function to check the reproduction of the pattern by user
   //have to figure out way to go through levels, rounds and deal with lives, add replay option etc
   //add opening animation, see if you can't suss out shine effect from animate.css splash page

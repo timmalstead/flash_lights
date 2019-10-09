@@ -1,3 +1,5 @@
+$("#titleBar").attr("class", "animated bounceInLeft")
+
 const $level = $("#level")
 
 const $round = $("#round")
@@ -315,6 +317,8 @@ checkInput(flashToCheck) {
             }
         }
     else {
+        $("main").attr("class", "animated jello")
+        setTimeout(() => $("main").removeClass(), 750)
         this.lives--
         $lives.text(this.lives)
         this.round++
@@ -337,4 +341,3 @@ game.setUpLevel()
 //add sounds?
 //add backend for highscore?
 //add social share?
-//additional mechanics? I even wanna mess with that?

@@ -8,6 +8,8 @@ const pattern = []
 
 const patternCheck = []
 
+let patternCheckCounter = 0
+
 const game = {
 
 userTurn : false,
@@ -180,15 +182,39 @@ secondModal() {
             setTimeout(() => $first.removeClass(), 1000)
             setTimeout(() => $first.attr("class", "modal"), 1000)
             this.firstRound = false
-            this.checkInput()
-            })       
+            // this.checkInput()
+            setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
+            })
 },
-checkInput() {
-    console.log('does this work at all')
+checkInput(flashToCheck) {
+    if (flashToCheck === patternCheck[patternCheckCounter]) {
+        console.log("that should work")
+        patternCheckCounter++
+            if (patternCheckCounter === patternCheck.length) {
+                console.log("looks like that's it")
+            }
+        }
+    // else if (flashToCheck === patternCheck[patternCheckCounter]) {
+    //     console.log("that should work")
+    //     patternCheckCounter++
+        
+    //     }
+    else {
+        console.log("that's not gonna work")
+    }
     }
 }
 
 game.setUpLevel()
+   
+$("main").on("click", (e) => {
+
+    const $arrayPosition = $(e.target).index()
+
+    if ($(e.target).hasClass("readyToClick")) {
+        game.checkInput($arrayPosition)
+    }
+})
 
   //have to make a function to check the reproduction of the pattern by user
   //have to figure out way to go through levels, rounds and deal with lives, add replay option etc

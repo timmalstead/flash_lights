@@ -10,13 +10,22 @@ let patternCheck = []
 
 let patternCheckCounter = 0
 
+$("main").on("click", (e) => {
+
+    const $arrayPosition = $(e.target).index()
+
+    if (game.readyToClick === true) {
+        game.checkInput($arrayPosition)
+    }
+})
+
 const game = {
 
 level : 1,
 
 round : 1,
 
-lives : 1,
+lives : 10,
 
 openingModals : true,
 
@@ -248,7 +257,17 @@ checkInput(flashToCheck) {
                 patternCheck = []
                 patternCheckCounter = 0
                 game.readyToClick = false
-                this.displayRandomPattern()
+                if (this.round === 6){
+                    this.level++
+                    this.round = 1
+                    pattern.length = 0
+                    patternCheck = []
+                    patternCheckCounter = 0
+                    this.setUpLevel()
+                }
+                else {
+                    this.displayRandomPattern()
+                }
             }
         }
     else {
@@ -269,15 +288,6 @@ checkInput(flashToCheck) {
 }
 
 game.setUpLevel()
-   
-$("main").on("click", (e) => {
-
-    const $arrayPosition = $(e.target).index()
-
-    if (game.readyToClick === true) {
-        game.checkInput($arrayPosition)
-    }
-})
 
 //have to figure out way to go through levels, rounds and deal with lives, add replay option etc
 //add opening animation, see if you can't suss out shine effect from animate.css splash page

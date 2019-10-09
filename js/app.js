@@ -20,7 +20,7 @@ lives : 3,
 
 gotItRight : true,
 
-dynamicInterval : 1000,
+// dynamicInterval : 1000,
 
 setUpLevel() {
     if (this.level === 1) {
@@ -158,28 +158,31 @@ displayRandomPattern() {
                 this.secondModal()
                 }
 
-                else if (pattern.length === 0) {
-                    clearInterval(patternInterval)
-                    for(i = 0; i < 100; i++) {
-                        window.clearInterval(i)
-                    }
-                    console.log(patternCheck)
-                    console.log("it's getting here")
-                    console.log(patternInterval)
-                    setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
-                }
-
-                // else if (pattern.length === 0 && this.level >= 1 && this.round > 1) {
+                // else if (pattern.length === 0) {
                 //     clearInterval(patternInterval)
+                //     for(i = 0; i < 100; i++) {
+                //         window.clearInterval(i)
+                //     }
+                //     console.log(patternCheck)
                 //     console.log("it's getting here")
+                //     console.log(patternInterval)
                 //     setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
                 // }
+
+                else if (pattern.length === 0 && this.level >= 1 && this.round > 1) {
+                    clearInterval(patternInterval)
+                    console.log("it's getting here")
+                    setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
+                }
                 else {
-                $("div").eq(pattern[0]).attr("class", "animated flash")
+                    if (pattern.length === 0) {
+                        pattern[0] = 1
+                    }
+                $("div").eq(pattern[0]).attr("class", "animated zoomIn")
                 setTimeout(() => $("div").removeClass(), 500)
                 pattern.shift(0)
             }
-        },  this.dynamicInterval)
+        },  1000)
         console.log(patternCheck)
     },
 openModal() {
@@ -192,8 +195,8 @@ openModal() {
         $open.on("click", () => {
             $open.attr("class", "animated bounceOutDown")
             setTimeout(() => $open.css("display", "none"), 1000)
-            // setTimeout(() => $open.removeClass(), 1000)
-            // setTimeout(() => $open.attr("class", "modal"), 1000)
+            setTimeout(() => $open.removeClass(), 1000)
+            setTimeout(() => $open.attr("class", "modal"), 1000)
             this.displayRandomPattern()
             })
     },
@@ -213,24 +216,23 @@ secondModal() {
             setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
             })
     }
-        else if (this.gotItRight === true && this.round > 1) {
-            const $right = $("#rightAnswer")
-        setTimeout(() => {
-            $right.attr("class", "animated bounceInLeft")
-            $right.css("display", "block")
-        }, 1000)
-        $right.removeClass()
-        $right.on("click", () => {
-            $right.attr("class", "animated bounceOutRight")
-            setTimeout(() => $right.css("display", "none"), 1000)
-            setTimeout(() => $right.removeClass(), 1000)
-            setTimeout(() => $right.attr("class", "modal"), 1000)
-            // setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
-            // setTimeout(() => this.displayRandomPattern(), 2000)
-            this.dynamicInterval += 500
-            this.displayRandomPattern()
-            })
-        }
+        // else if (this.gotItRight === true && this.round > 1) {
+        //     const $right = $("#rightAnswer")
+        // setTimeout(() => {
+        //     $right.attr("class", "animated bounceInLeft")
+        //     $right.css("display", "block")
+        // }, 1000)
+        // $right.removeClass()
+        // $right.on("click", () => {
+        //     $right.attr("class", "animated bounceOutRight")
+        //     setTimeout(() => $right.css("display", "none"), 1000)
+        //     setTimeout(() => $right.removeClass(), 1000)
+        //     // setTimeout(() => $right.attr("class", "modal"), 1000)
+        //     // this.dynamicInterval += 500
+        //     // setTimeout(() => this.displayRandomPattern(), 2000)
+        //     this.displayRandomPattern()
+        //     })
+        // }
         else if (this.gotItRight === false && this.lives !== 0) {
             console.log("bruh, you got that one wrong")
         }
@@ -246,12 +248,10 @@ checkInput(flashToCheck) {
                 $round.text(this.round)
                 this.gotItRight = true
                 setTimeout(() => $("div").removeClass(), 1000)
-                // for (let i = 0; i = patternCheck.length; i++) {
-                //     patternCheck.pop()
-                // }
                 patternCheck = []
                 patternCheckCounter = 0
-                this.secondModal()
+                // this.secondModal()
+                this.displayRandomPattern()
             }
         }
     else {

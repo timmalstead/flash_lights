@@ -182,7 +182,6 @@ secondModal() {
             setTimeout(() => $first.removeClass(), 1000)
             setTimeout(() => $first.attr("class", "modal"), 1000)
             this.firstRound = false
-            // this.checkInput()
             setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
             })
 },
@@ -194,11 +193,6 @@ checkInput(flashToCheck) {
                 console.log("looks like that's it")
             }
         }
-    // else if (flashToCheck === patternCheck[patternCheckCounter]) {
-    //     console.log("that should work")
-    //     patternCheckCounter++
-        
-    //     }
     else {
         console.log("that's not gonna work")
     }
@@ -215,11 +209,3 @@ $("main").on("click", (e) => {
         game.checkInput($arrayPosition)
     }
 })
-
-  //have to make a function to check the reproduction of the pattern by user
-  //have to figure out way to go through levels, rounds and deal with lives, add replay option etc
-  //add opening animation, see if you can't suss out shine effect from animate.css splash page
-  //add sounds?
-  //add backend for highscore?
-  //add social share?
-  //additional mechanics? I even wanna mess with that?

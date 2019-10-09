@@ -97,18 +97,38 @@ setTiles(numberOfTiles, width, height) {
 
         if (random === 0) {
         $tile.css("backgroundColor", "#f5d84b")
+        $tile.hover(function(){
+            $tile.css("boxShadow", "0 0 2em #f5d84b")
+        }, function(){
+            $tile.css("boxShadow", "none")
+        })
         }
 
         else if (random === 1) {
             $tile.css("backgroundColor", "#e91a3c")
+            $tile.hover(function(){
+                $tile.css("boxShadow", "0 0 2em #e91a3c")
+            }, function(){
+                $tile.css("boxShadow", "none")
+            })
             }
 
         else if (random === 2) {
             $tile.css("backgroundColor", "#2b67c1")
+            $tile.hover(function(){
+                $tile.css("boxShadow", "0 0 2em #2b67c1")
+            }, function(){
+                $tile.css("boxShadow", "none")
+            })
             }
 
         else if (random === 3) {
             $tile.css("backgroundColor", "#31c462")
+            $tile.hover(function(){
+                $tile.css("boxShadow", "0 0 2em #31c462")
+            }, function(){
+                $tile.css("boxShadow", "none")
+            })
             }
 
         $tile.css("width", `${width}%`)
@@ -126,12 +146,6 @@ setTiles(numberOfTiles, width, height) {
         else {
             $tile.css("margin", "0 1%")
         }
-
-        $tile.hover(function(){
-            $tile.css("opacity", ".5")
-        }, function(){
-            $tile.css("opacity", "1")
-        })
 
         $("main").append($tile)
 

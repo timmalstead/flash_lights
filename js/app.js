@@ -16,14 +16,19 @@ level : 1,
 
 round : 1,
 
-lives : 10,
+lives : 1,
 
 openingModals : true,
 
 readyToClick : false,
 
+youLose : false,
+
 setUpLevel() {
-    if (this.level === 1) {
+
+    $("main").empty()
+
+    if (this.level === 1 && this.openingModals === true) {
         this.setTiles(4, "48", "46")
         setTimeout(() => {
             $(".animated").removeClass()
@@ -31,11 +36,20 @@ setUpLevel() {
         }, 2000)
     }
 
+    if (this.level === 1 && this.openingModals === false) {
+        this.setTiles(4, "48", "46")
+        setTimeout(() => {
+            $(".animated").removeClass()
+            this.displayRandomPattern()
+        }, 2000)
+    }
+
     else if (this.level === 2) {
         this.setTiles(8, "48", "23")
         setTimeout(() => {
             $(".animated").removeClass()
-            this.openModal()
+            this.openingModals = false
+            this.displayRandomPattern()
         }, 3000)
     }
 
@@ -43,7 +57,8 @@ setUpLevel() {
         this.setTiles(16, "24", "23")
         setTimeout(() => {
             $(".animated").removeClass()
-            this.openModal()
+            this.openingModals = false
+            this.displayRandomPattern()
         }, 5000)
     }
 
@@ -149,8 +164,10 @@ displayRandomPattern() {
                 this.secondModal()
                 }
 
-                else if (pattern.length === 0 && this.level >= 1 && this.round > 1) {
+                else if (pattern.length === 0 && this.openingModals === false) 
+                    {
                     clearInterval(patternInterval)
+                    this.readyToClick = true
                 }
                 else {
                     if (pattern.length === 0) {
@@ -195,6 +212,32 @@ secondModal() {
             })
     }
 },
+
+finalModal() {
+    if (this.youLose === true) {
+    const $lose = $("#youLose")
+    setTimeout(() => {
+        $lose.attr("class", "animated bounceInLeft")
+        $lose.css("display", "block")
+    }, 1000)
+    $lose.removeClass()
+    $lose.on("click", () => {
+        $lose.attr("class", "animated bounceOutRight")
+        setTimeout(() => $lose.css("display", "none"), 1000)
+        setTimeout(() => $lose.removeClass(), 1000)
+        setTimeout(() => $lose.attr("class", "modal"), 1000)
+        pattern.length = 0
+        patternCheck = []
+        patternCheckCounter = 0
+        this.firstPlay = false
+        this.level = 1
+        this.round = 1
+        this.lives = 10
+        this.setUpLevel()
+        })
+}
+},
+
 checkInput(flashToCheck) {
     if (flashToCheck === patternCheck[patternCheckCounter]) {
         patternCheckCounter++
@@ -204,6 +247,7 @@ checkInput(flashToCheck) {
                 setTimeout(() => $("div").removeClass(), 1000)
                 patternCheck = []
                 patternCheckCounter = 0
+                game.readyToClick = false
                 this.displayRandomPattern()
             }
         }
@@ -212,7 +256,14 @@ checkInput(flashToCheck) {
         $lives.text(this.lives)
         this.round++
         $round.text(this.round)
-        this.secondModal()
+        game.readyToClick = false
+        if (this.lives === 0){
+            this.youLose = true
+            game.readyToClick = false
+            this.finalModal()
+        } else {
+            this.displayRandomPattern()
+            }
         }
     }
 }

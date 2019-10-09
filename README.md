@@ -9,7 +9,7 @@ timmalstead@gmail.com
 
 How much can you remember?
 
-Flash. Lights. tests your ability to remember sequences of colors and challenges you to repeat ever more advanced combinations in a fun and colorful environment optimized for desktop web and mobile devices.
+Flash. Lights. tests your ability to remember sequences of colors and challenges you to repeat advanced combinations in a fun and colorful environment optimized for desktop web and mobile devices.
 
 Flash. Lights. was made to pay homage to the classic children's game Simon and to test my ability to design and implement fun, intuitive and beautiful software and my ability to work with responsive design.
 
@@ -19,7 +19,7 @@ Flash. Lights. was made to pay homage to the classic children's game Simon and t
 
 2)After the pattern has been displayed, the user must click the tiles in the same order displayed in order to pass the round.
 
-3)The user can input a maximum of **10 wrong patterns** before the game ends and the user is asked if they would like to try again.
+3)The user can input a maximum of **ten wrong patterns** before the game ends and the user is asked if they would like to try again.
 
 4)If the user inputs five correct patterns, the game goes to the next level, with more squares for each level
 

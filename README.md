@@ -31,4 +31,5 @@ In addition to the three main front end web languages, HTML, CSS and JavaScript;
 
 #### Known Issues
 
-Hovering over game tiles will make them appear over modals.
+Opacity of game tiles will show over modals
+hello

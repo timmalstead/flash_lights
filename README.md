@@ -32,4 +32,3 @@ In addition to the three main front end web languages, HTML, CSS and JavaScript;
 #### Known Issues
 
 Opacity of game tiles will show over modals
-hello

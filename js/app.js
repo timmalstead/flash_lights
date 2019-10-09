@@ -6,19 +6,21 @@ const $lives = $("#lives")
 
 const pattern = []
 
-const patternCheck = []
+let patternCheck = []
 
 let patternCheckCounter = 0
 
 const game = {
-
-userTurn : false,
 
 level : 1,
 
 round : 1,
 
 lives : 3,
+
+gotItRight : true,
+
+dynamicInterval : 1000,
 
 setUpLevel() {
     if (this.level === 1) {
@@ -113,6 +115,7 @@ setTiles(numberOfTiles, width, height) {
 
 displayRandomPattern() {
         let numberOfTiles = 0
+        patternCheck = []
         if (this.level === 1) {
             numberOfTiles = 4
         }
@@ -136,6 +139,10 @@ displayRandomPattern() {
                 random = 1
             }
 
+
+            // pattern.push(random)
+            // patternCheck.push(random)
+
             if (pattern.length === 0 || pattern[i] !== random && pattern[i-1] !== random && pattern[i+1] !== random) {
                 pattern.push(random)
                 patternCheck.push(random)
@@ -143,16 +150,37 @@ displayRandomPattern() {
 
         }
         const patternInterval = setInterval(() => {
-            if (pattern.length === 0) {
+            if (pattern.length === 0 && this.level === 1 && this.round === 1) {
                 clearInterval(patternInterval)
-                this.userTurn = true
+                for(i = 0; i < 100; i++) {
+                    window.clearInterval(i)
+                }
                 this.secondModal()
-            } else {
+                }
+
+                else if (pattern.length === 0) {
+                    clearInterval(patternInterval)
+                    for(i = 0; i < 100; i++) {
+                        window.clearInterval(i)
+                    }
+                    console.log(patternCheck)
+                    console.log("it's getting here")
+                    console.log(patternInterval)
+                    setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
+                }
+
+                // else if (pattern.length === 0 && this.level >= 1 && this.round > 1) {
+                //     clearInterval(patternInterval)
+                //     console.log("it's getting here")
+                //     setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
+                // }
+                else {
                 $("div").eq(pattern[0]).attr("class", "animated flash")
-                setTimeout(() => $(".animated").removeClass(), 500)
+                setTimeout(() => $("div").removeClass(), 500)
                 pattern.shift(0)
             }
-        }, 1000)
+        },  this.dynamicInterval)
+        console.log(patternCheck)
     },
 openModal() {
         const $open = $("#openModal")
@@ -164,44 +192,77 @@ openModal() {
         $open.on("click", () => {
             $open.attr("class", "animated bounceOutDown")
             setTimeout(() => $open.css("display", "none"), 1000)
-            setTimeout(() => $open.removeClass(), 1000)
-            setTimeout(() => $open.attr("class", "modal"), 1000)
+            // setTimeout(() => $open.removeClass(), 1000)
+            // setTimeout(() => $open.attr("class", "modal"), 1000)
             this.displayRandomPattern()
             })
     },
 secondModal() {
+        if (this.level === 1 && this.round === 1) {
         const $first = $("#firstTurn")
         setTimeout(() => {
-            $first.attr("class", "animated bounceInDown")
+            $first.attr("class", "animated bounceInUp")
             $first.css("display", "block")
         }, 1000)
         $first.removeClass()
         $first.on("click", () => {
-            $first.attr("class", "animated bounceOutDown")
+            $first.attr("class", "animated bounceOutUp")
             setTimeout(() => $first.css("display", "none"), 1000)
             setTimeout(() => $first.removeClass(), 1000)
             setTimeout(() => $first.attr("class", "modal"), 1000)
-            this.firstRound = false
-            // this.checkInput()
             setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
             })
+    }
+        else if (this.gotItRight === true && this.round > 1) {
+            const $right = $("#rightAnswer")
+        setTimeout(() => {
+            $right.attr("class", "animated bounceInLeft")
+            $right.css("display", "block")
+        }, 1000)
+        $right.removeClass()
+        $right.on("click", () => {
+            $right.attr("class", "animated bounceOutRight")
+            setTimeout(() => $right.css("display", "none"), 1000)
+            setTimeout(() => $right.removeClass(), 1000)
+            setTimeout(() => $right.attr("class", "modal"), 1000)
+            // setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
+            // setTimeout(() => this.displayRandomPattern(), 2000)
+            this.dynamicInterval += 500
+            this.displayRandomPattern()
+            })
+        }
+        else if (this.gotItRight === false && this.lives !== 0) {
+            console.log("bruh, you got that one wrong")
+        }
+        else {
+            console.log("game over man!")
+        }
 },
 checkInput(flashToCheck) {
     if (flashToCheck === patternCheck[patternCheckCounter]) {
-        console.log("that should work")
         patternCheckCounter++
             if (patternCheckCounter === patternCheck.length) {
-                console.log("looks like that's it")
+                this.round++
+                $round.text(this.round)
+                this.gotItRight = true
+                setTimeout(() => $("div").removeClass(), 1000)
+                // for (let i = 0; i = patternCheck.length; i++) {
+                //     patternCheck.pop()
+                // }
+                patternCheck = []
+                patternCheckCounter = 0
+                this.secondModal()
             }
         }
-    // else if (flashToCheck === patternCheck[patternCheckCounter]) {
-    //     console.log("that should work")
-    //     patternCheckCounter++
-        
-    //     }
     else {
-        console.log("that's not gonna work")
-    }
+        this.lives--
+        $lives.text(this.lives)
+        this.round++
+        $round.text(this.round)
+        this.gotItRight = false
+        // setTimeout(() => $("div").removeClass(), 1000)
+        this.secondModal()
+        }
     }
 }
 
@@ -211,12 +272,13 @@ $("main").on("click", (e) => {
 
     const $arrayPosition = $(e.target).index()
 
-    if ($(e.target).hasClass("readyToClick")) {
+    if ($(e.target).hasClass("readyToClick") && e.target != e.currentTarget) {
         game.checkInput($arrayPosition)
     }
 })
 
-  //have to make a function to check the reproduction of the pattern by user
+//almost completely certain that it's calling the display random function more than once as i select more and more. gonna have the mikes show me how to look for that in the debugger.
+
   //have to figure out way to go through levels, rounds and deal with lives, add replay option etc
   //add opening animation, see if you can't suss out shine effect from animate.css splash page
   //add sounds?

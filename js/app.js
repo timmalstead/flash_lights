@@ -171,6 +171,10 @@ displayRandomPattern() {
 
         let flashNumber = Math.floor(Math.random() * numberOfTiles)
 
+        if (flashNumber < 2) {
+            flashNumber = 2
+        }
+
         for (let i = 0; i < flashNumber; i++){
 
             let random = Math.floor(Math.random() * numberOfTiles)
@@ -337,7 +341,6 @@ checkInput(flashToCheck) {
 
 game.setUpLevel()
 
-//add opening animation, see if you can't suss out shine effect from animate.css splash page
 //add sounds?
-//add backend for highscore?
+//add backend for high score?
 //add social share?

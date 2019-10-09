@@ -226,12 +226,12 @@ finalModal() {
     if (this.youLose === true) {
     const $lose = $("#youLose")
     setTimeout(() => {
-        $lose.attr("class", "animated bounceInLeft")
+        $lose.attr("class", "animated bounceInRight")
         $lose.css("display", "block")
     }, 1000)
     $lose.removeClass()
     $lose.on("click", () => {
-        $lose.attr("class", "animated bounceOutRight")
+        $lose.attr("class", "animated bounceOutLeft")
         setTimeout(() => $lose.css("display", "none"), 1000)
         setTimeout(() => $lose.removeClass(), 1000)
         setTimeout(() => $lose.attr("class", "modal"), 1000)
@@ -244,7 +244,29 @@ finalModal() {
         this.lives = 10
         this.setUpLevel()
         })
-}
+    }
+    if (this.youLose === false) {
+        const $win = $("#youWin")
+        setTimeout(() => {
+            $win.attr("class", "animated bounceInLeft")
+            $win.css("display", "block")
+        }, 1000)
+        $win.removeClass()
+        $win.on("click", () => {
+            $win.attr("class", "animated bounceOutRight")
+            setTimeout(() => $win.css("display", "none"), 1000)
+            setTimeout(() => $win.removeClass(), 1000)
+            setTimeout(() => $win.attr("class", "modal"), 1000)
+            pattern.length = 0
+            patternCheck = []
+            patternCheckCounter = 0
+            this.firstPlay = false
+            this.level = 1
+            this.round = 1
+            this.lives = 10
+            this.setUpLevel()
+            })
+        }
 },
 
 checkInput(flashToCheck) {
@@ -264,6 +286,12 @@ checkInput(flashToCheck) {
                     patternCheck = []
                     patternCheckCounter = 0
                     this.setUpLevel()
+                }
+                else if (this.level === 3 && this.round === 6) {
+                    pattern.length = 0
+                    patternCheck = []
+                    patternCheckCounter = 0
+                    this.finalModal()
                 }
                 else {
                     this.displayRandomPattern()
@@ -289,7 +317,6 @@ checkInput(flashToCheck) {
 
 game.setUpLevel()
 
-//have to figure out way to go through levels, rounds and deal with lives, add replay option etc
 //add opening animation, see if you can't suss out shine effect from animate.css splash page
 //add sounds?
 //add backend for highscore?

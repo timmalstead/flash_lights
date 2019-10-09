@@ -316,9 +316,3 @@ checkInput(flashToCheck) {
 }
 
 game.setUpLevel()
-
-//add opening animation, see if you can't suss out shine effect from animate.css splash page
-//add sounds?
-//add backend for highscore?
-//add social share?
-//additional mechanics? I even wanna mess with that?

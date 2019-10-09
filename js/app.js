@@ -16,6 +16,9 @@ $("main").on("click", (e) => {
 
     if (game.readyToClick === true) {
         game.checkInput($arrayPosition)
+        $(e.target).attr("class", "animated zoomIn")
+        setTimeout(() => $("div").removeClass(), 750)
+
     }
 })
 
@@ -187,7 +190,6 @@ displayRandomPattern() {
                 pattern.shift(0)
             }
         },  1000)
-        console.log(patternCheck)
     },
 openModal() {
         const $open = $("#openModal")

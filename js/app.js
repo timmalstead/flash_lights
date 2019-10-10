@@ -337,12 +337,16 @@ checkInput(flashToCheck) {
     }
 }
 
-// const error = new Audio(“../audio/error.wav”)
+const audio = {
+    error : new Audio("audio/error.mp3"),
 
-// const load = new Audio(“../audio/load.wav”)
+    load : new Audio("audio/load.mp3"),
 
-// const select = new Audio(“../audio/select.aiff”)
-    
-// const win = new Audio(“../audio/win.wav”)
+    select : new Audio("audio/win.mp3"),
+
+    win : new Audio("audio/win.mp3")
+}
 
 game.setUpLevel()
+
+audio.error.play()

@@ -1,3 +1,9 @@
+$("#titleBar").attr("class", "animated bounceInLeft")
+
+if ($(window).width() >= 1041) {
+    $("footer").attr("class", "animated bounceInRight")
+}
+
 const $level = $("#level")
 
 const $round = $("#round")
@@ -15,7 +21,10 @@ $("main").on("click", (e) => {
     const $arrayPosition = $(e.target).index()
 
     if (game.readyToClick === true) {
+        audio.select.play()
         game.checkInput($arrayPosition)
+        $(e.target).attr("class", "animated zoomIn")
+        setTimeout(() => $("div").removeClass(), 750)
     }
 })
 
@@ -94,18 +103,38 @@ setTiles(numberOfTiles, width, height) {
 
         if (random === 0) {
         $tile.css("backgroundColor", "#f5d84b")
+        $tile.hover(function(){
+            $tile.css("boxShadow", "0 0 2em #f5d84b")
+        }, function(){
+            $tile.css("boxShadow", "none")
+        })
         }
 
         else if (random === 1) {
             $tile.css("backgroundColor", "#e91a3c")
+            $tile.hover(function(){
+                $tile.css("boxShadow", "0 0 2em #e91a3c")
+            }, function(){
+                $tile.css("boxShadow", "none")
+            })
             }
 
         else if (random === 2) {
             $tile.css("backgroundColor", "#2b67c1")
+            $tile.hover(function(){
+                $tile.css("boxShadow", "0 0 2em #2b67c1")
+            }, function(){
+                $tile.css("boxShadow", "none")
+            })
             }
 
         else if (random === 3) {
             $tile.css("backgroundColor", "#31c462")
+            $tile.hover(function(){
+                $tile.css("boxShadow", "0 0 2em #31c462")
+            }, function(){
+                $tile.css("boxShadow", "none")
+            })
             }
 
         $tile.css("width", `${width}%`)
@@ -123,12 +152,6 @@ setTiles(numberOfTiles, width, height) {
         else {
             $tile.css("margin", "0 1%")
         }
-
-        $tile.hover(function(){
-            $tile.css("opacity", ".5")
-        }, function(){
-            $tile.css("opacity", "1")
-        })
 
         $("main").append($tile)
 
@@ -151,6 +174,10 @@ displayRandomPattern() {
         }
 
         let flashNumber = Math.floor(Math.random() * numberOfTiles)
+
+        if (flashNumber < 2) {
+            flashNumber = 2
+        }
 
         for (let i = 0; i < flashNumber; i++){
 
@@ -187,7 +214,6 @@ displayRandomPattern() {
                 pattern.shift(0)
             }
         },  1000)
-        console.log(patternCheck)
     },
 openModal() {
         const $open = $("#openModal")
@@ -282,6 +308,7 @@ checkInput(flashToCheck) {
                 patternCheckCounter = 0
                 game.readyToClick = false
                 if (this.round === 6){
+                    audio.win.play()
                     this.level++
                     this.round = 1
                     pattern.length = 0
@@ -290,6 +317,7 @@ checkInput(flashToCheck) {
                     this.setUpLevel()
                 }
                 else if (this.level === 3 && this.round === 6) {
+                    audio.win.play()
                     pattern.length = 0
                     patternCheck = []
                     patternCheckCounter = 0
@@ -301,12 +329,17 @@ checkInput(flashToCheck) {
             }
         }
     else {
+        audio.select.pause()
+        audio.error.play()
+        $("main").attr("class", "animated jello")
+        setTimeout(() => $("main").removeClass(), 750)
         this.lives--
         $lives.text(this.lives)
-        this.round++
         $round.text(this.round)
         game.readyToClick = false
         if (this.lives === 0){
+            audio.error.pause()
+            audio.fail.play()
             this.youLose = true
             game.readyToClick = false
             this.finalModal()
@@ -317,6 +350,17 @@ checkInput(flashToCheck) {
     }
 }
 
+const audio = {
+    error : new Audio("audio/error.mp3"),
+
+    fail : new Audio("audio/fail.mp3"),
+
+    select : new Audio("audio/select.mp3"),
+
+    win : new Audio("audio/win.mp3")
+}
+
+game.setUpLevel()
 game.setUpLevel()
    
 $("main").on("click", (e) => {

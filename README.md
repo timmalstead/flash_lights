@@ -1,3 +1,4 @@
+
 ## Flash. Lights.
 
 ###### Version 1.0
@@ -27,9 +28,20 @@ Flash. Lights. was made to pay homage to the classic children's game Simon and t
 
 #### Technologies Used
 
-In addition to the three main front end web languages, HTML, CSS and JavaScript; this game takes advantage of the jQuery and Animate.css libraries to create a smooth and easy to navigate user experience. My goal with the user interface of this project was to create as minimal and Spartan a project as possible, something that can get out of the user's way and allow them to concentrate on the game.
+In addition to the three main front end web languages, HTML, CSS and JavaScript; this game takes advantage of the jQuery and Animate.css libraries to create a smooth and easy to navigate user experience. My goal with the user interface of this project was to create as minimal and Spartan project as possible, something that can get out of the user's way and allow them to concentrate on the game.
 
 #### Known Issues
 
-Opacity of game tiles will show over modals
-hello
+The game can run into animation issues if there are browser extensions running that effect JavaScript. If you are having problems, try disabling extensions or running in incognito mode.
+
+#### Special Thanks
+
+Thanks to all my fellow students in SEI CC 5 (**Cranberry Gobblers 4 Lyfe!**) for all the encouragement, opinions and laughs.
+
+Big thanks to my instructors Michael Christenson, Michael Siller, Clayton Wang and James Haff for all the help figuring out intervals, sounds and the patient explanations of why asynchronous programming *just doesn't work that way*.
+
+Huge thanks to Daniel Eden for creating the Animate.CSS library. He made it easy to make my project dynamic.
+
+Gargantuan thanks to Andrew Singer for graciously donating the chipset sounds.
+
+Finally, thanks to you for taking the time to read this and to play my game. If you loved the game, I'd love to hear from you!

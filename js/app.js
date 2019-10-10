@@ -244,8 +244,6 @@ secondModal() {
             setTimeout(() => $first.css("display", "none"), 1000)
             setTimeout(() => $first.removeClass(), 1000)
             setTimeout(() => $first.attr("class", "modal"), 1000)
-            this.firstRound = false
-            setTimeout(() => $("div").attr("class", "readyToClick"), 1000)
             })
     }
 },
@@ -361,19 +359,3 @@ const audio = {
 }
 
 game.setUpLevel()
-game.setUpLevel()
-   
-$("main").on("click", (e) => {
-
-    const $arrayPosition = $(e.target).index()
-
-    if ($(e.target).hasClass("readyToClick")) {
-        game.checkInput($arrayPosition)
-    }
-})
-
-//add opening animation, see if you can't suss out shine effect from animate.css splash page
-//add sounds?
-//add backend for highscore?
-//add social share?
-//additional mechanics? I even wanna mess with that?

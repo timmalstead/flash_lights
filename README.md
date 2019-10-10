@@ -31,4 +31,15 @@ In addition to the three main front end web languages, HTML, CSS and JavaScript;
 
 #### Known Issues
 
-None at current
+The game can run into animation issues if there are browser extensions running that effect JavaScript. If you are having problems, try disabling extensions or running in incognito mode.
+
+#### Special Thanks
+
+Big thanks to my instructors Michael Christenson, Michael Siller, Clayton Wang and James Haff for all the help figuring out intervals and the patient explanations of why asynchronous programming *just doesn't work that way*.
+
+Thanks to all my fellow students in SEI CC 5 (**Cranberry Gobblers 4 Lyfe!**) for all the encouragement, opinions and laughs.
+
+Huge thanks to Daniel Eden for creating the Animate.CSS library. He made it easy to make my project dynamic.
+
+Finally, thanks to you for taking the time to read this and to play my game. If you loved the game, I'd love to hear from you!
+

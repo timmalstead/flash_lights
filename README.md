@@ -35,7 +35,7 @@ The game can run into animation issues if there are browser extensions running t
 
 #### Special Thanks
 
-Big thanks to my instructors Michael Christenson, Michael Siller, Clayton Wang and James Haff for all the help figuring out intervals and the patient explanations of why asynchronous programming *just doesn't work that way*.
+Big thanks to my instructors Michael Christenson, Michael Siller, Clayton Wang and James Haff for all the help figuring out intervals, sounds and the patient explanations of why asynchronous programming *just doesn't work that way*.
 
 Thanks to all my fellow students in SEI CC 5 (**Cranberry Gobblers 4 Lyfe!**) for all the encouragement, opinions and laughs.
 

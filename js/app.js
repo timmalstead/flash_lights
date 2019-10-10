@@ -1,37 +1,5 @@
 $("#titleBar").attr("class", "animated bounceInLeft")
 
-const channelMax = 20
-
-const audioChannels = []
-
-const $error = $("#error")
-
-for (let i = 0; i < channelMax; i++) {
-    audioChannels[i] = []
-    audioChannels[i]["channel"] = new Audio()
-    audioChannels[i]["finished"] = -1
-}
-
-const playSounds = (sound) => {
-    for (let i = 0; i < audioChannels.length; i++) {
-        const thisTime = new Date()
-        if (audioChannels[i]["finished"] < thisTime.getTime()) {
-            audioChannels[i]["finished"] = thisTime.getTime() + document.getElementById(sound.attr('id')).duration*1000
-            audioChannels[i]["channel"].src = document.getElementById(sound.attr('id')).src
-            audioChannels[i]["channel"].load()
-            audioChannels[i]["channel"].play()
-            document.getElementById(sound.attr('id')).play()
-            break
-        }
-    }
-}
-
-playSounds($error)
-
-
-
-
-
 const $level = $("#level")
 
 const $round = $("#round")
@@ -49,6 +17,7 @@ $("main").on("click", (e) => {
     const $arrayPosition = $(e.target).index()
 
     if (game.readyToClick === true) {
+        audio.select.play()
         game.checkInput($arrayPosition)
         $(e.target).attr("class", "animated zoomIn")
         setTimeout(() => $("div").removeClass(), 750)
@@ -333,6 +302,7 @@ checkInput(flashToCheck) {
                 patternCheckCounter = 0
                 game.readyToClick = false
                 if (this.round === 6){
+                    audio.win.play()
                     this.level++
                     this.round = 1
                     pattern.length = 0
@@ -341,6 +311,7 @@ checkInput(flashToCheck) {
                     this.setUpLevel()
                 }
                 else if (this.level === 3 && this.round === 6) {
+                    audio.win.play()
                     pattern.length = 0
                     patternCheck = []
                     patternCheckCounter = 0
@@ -352,6 +323,8 @@ checkInput(flashToCheck) {
             }
         }
     else {
+        audio.select.pause()
+        audio.error.play()
         $("main").attr("class", "animated jello")
         setTimeout(() => $("main").removeClass(), 750)
         this.lives--
@@ -359,6 +332,8 @@ checkInput(flashToCheck) {
         $round.text(this.round)
         game.readyToClick = false
         if (this.lives === 0){
+            audio.error.pause()
+            audio.fail.play()
             this.youLose = true
             game.readyToClick = false
             this.finalModal()
@@ -369,29 +344,14 @@ checkInput(flashToCheck) {
     }
 }
 
+const audio = {
+    error : new Audio("audio/error.mp3"),
+
+    fail : new Audio("audio/fail.mp3"),
+
+    select : new Audio("audio/select.mp3"),
+
+    win : new Audio("audio/win.mp3")
+}
+
 game.setUpLevel()
-
-// const audio = {
-//     error : new Audio("audio/error.mp3"),
-
-//     load : new Audio("audio/load.mp3"),
-
-//     select : new Audio("audio/win.mp3"),
-
-//     win : new Audio("audio/win.mp3")
-// }
-
-// const t = () => audio.error.play()
-//  async function playSound() {
-//      try {
-//         await audio.error.play()
-//      } catch(err) {
-//          console.log(err)
-//      }
-//  }
-
-const t = new Audio("audio/error.mp3")
-
-$('#openModal').on('click', () => t.play())
-
-//  playSound()

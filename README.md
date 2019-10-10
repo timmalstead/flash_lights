@@ -35,11 +35,13 @@ The game can run into animation issues if there are browser extensions running t
 
 #### Special Thanks
 
-Big thanks to my instructors Michael Christenson, Michael Siller, Clayton Wang and James Haff for all the help figuring out intervals, sounds and the patient explanations of why asynchronous programming *just doesn't work that way*.
-
 Thanks to all my fellow students in SEI CC 5 (**Cranberry Gobblers 4 Lyfe!**) for all the encouragement, opinions and laughs.
 
+Big thanks to my instructors Michael Christenson, Michael Siller, Clayton Wang and James Haff for all the help figuring out intervals, sounds and the patient explanations of why asynchronous programming *just doesn't work that way*.
+
 Huge thanks to Daniel Eden for creating the Animate.CSS library. He made it easy to make my project dynamic.
+
+Gargantuan thanks to Andrew Singer for graciously donating the chipset sounds.
 
 Finally, thanks to you for taking the time to read this and to play my game. If you loved the game, I'd love to hear from you!
 

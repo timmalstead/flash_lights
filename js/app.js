@@ -20,7 +20,6 @@ $("main").on("click", (e) => {
         game.checkInput($arrayPosition)
         $(e.target).attr("class", "animated zoomIn")
         setTimeout(() => $("div").removeClass(), 750)
-
     }
 })
 
@@ -325,7 +324,6 @@ checkInput(flashToCheck) {
         setTimeout(() => $("main").removeClass(), 750)
         this.lives--
         $lives.text(this.lives)
-        this.round++
         $round.text(this.round)
         game.readyToClick = false
         if (this.lives === 0){
@@ -339,8 +337,12 @@ checkInput(flashToCheck) {
     }
 }
 
-game.setUpLevel()
+// const error = new Audio(“../audio/error.wav”)
 
-//add sounds?
-//add backend for high score?
-//add social share?
+// const load = new Audio(“../audio/load.wav”)
+
+// const select = new Audio(“../audio/select.aiff”)
+    
+// const win = new Audio(“../audio/win.wav”)
+
+game.setUpLevel()

@@ -1,3 +1,4 @@
+
 ## Flash. Lights.
 
 ###### Version 1.0
@@ -44,4 +45,3 @@ Huge thanks to Daniel Eden for creating the Animate.CSS library. He made it easy
 Gargantuan thanks to Andrew Singer for graciously donating the chipset sounds.
 
 Finally, thanks to you for taking the time to read this and to play my game. If you loved the game, I'd love to hear from you!
-

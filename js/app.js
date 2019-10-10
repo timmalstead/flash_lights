@@ -1,5 +1,9 @@
 $("#titleBar").attr("class", "animated bounceInLeft")
 
+if ($(window).width() >= 1041) {
+    $("footer").attr("class", "animated bounceInRight")
+}
+
 const $level = $("#level")
 
 const $round = $("#round")

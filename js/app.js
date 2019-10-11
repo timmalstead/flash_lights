@@ -1,6 +1,6 @@
 $("#titleBar").attr("class", "animated bounceInLeft")
 
-if ($(window).width() >= 1041) {
+if ($(window).width() > 1040) {
     $("footer").attr("class", "animated bounceInRight")
 }
 
@@ -19,8 +19,8 @@ let patternCheckCounter = 0
 $("main").on("click", (e) => {
 
     const $arrayPosition = $(e.target).index()
-
-    if (game.readyToClick === true) {
+    
+    if (game.readyToClick === true && e.target !== e.currentTarget) {
         audio.select.play()
         game.checkInput($arrayPosition)
         $(e.target).attr("class", "animated zoomIn")
@@ -30,7 +30,7 @@ $("main").on("click", (e) => {
 
 const game = {
 
-level : 1,
+level : 2,
 
 round : 1,
 
@@ -213,7 +213,7 @@ displayRandomPattern() {
                 setTimeout(() => $("div").removeClass(), 750)
                 pattern.shift(0)
             }
-        },  1000)
+        },  2000)
     },
 openModal() {
         const $open = $("#openModal")
@@ -297,7 +297,7 @@ finalModal() {
 
 checkInput(flashToCheck) {
     if (flashToCheck === patternCheck[patternCheckCounter]) {
-        patternCheckCounter++
+        patternCheckCounter += 1
             if (patternCheckCounter === patternCheck.length) {
                 this.round++
                 $round.text(this.round)

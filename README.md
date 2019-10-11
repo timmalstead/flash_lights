@@ -18,6 +18,8 @@ Flash. Lights. was made to pay homage to the classic children's game Simon and t
 
 #### Gameplay
 
+![flash lights screenshot](https://user-images.githubusercontent.com/54044142/66674538-ffb58580-ec17-11e9-803a-fc1ab6455778.png)
+
 1)Once the game begins, the user is shown a pattern of flashing tiles.
 
 2)After the pattern has been displayed, the user must click the tiles in the same order displayed in order to pass the round.

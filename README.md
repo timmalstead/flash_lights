@@ -40,6 +40,14 @@ The one seen the most is that after a random pattern is displayed the program wi
 
 If you are having problems, try disabling extensions or running in incognito mode.
 
+#### Next Steps
+
+1)Add a back end to store high scores
+
+2)Add a social function to share how many times you've won.
+
+3)Add new game mechanics, such as hidden tiles, new shapes etc.
+
 #### Special Thanks
 
 Thanks to all my fellow students in SEI CC 5 (**Cranberry Gobblers 4 Lyfe!**) for all the encouragement, opinions and laughs.

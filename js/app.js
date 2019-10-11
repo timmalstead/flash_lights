@@ -213,7 +213,7 @@ displayRandomPattern() {
                 setTimeout(() => $("div").removeClass(), 750)
                 pattern.shift(0)
             }
-        },  2000)
+        },  1000)
     },
 openModal() {
         const $open = $("#openModal")

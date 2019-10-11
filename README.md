@@ -32,7 +32,11 @@ In addition to the three main front end web languages, HTML, CSS and JavaScript;
 
 #### Known Issues
 
-The game can run into animation issues if there are browser extensions running that effect JavaScript. If you are having problems, try disabling extensions or running in incognito mode.
+The game can run into issues with the game functions and animations if there are browser extensions running that effect JavaScript.
+
+The one seen the most is that a random pattern will be displayed and the program will think that the second light flashed is the correct one and will read the first light actually flashed as incorrect. I believe it is an interval issue.
+
+If you are having problems, try disabling extensions or running in incognito mode.
 
 #### Special Thanks
 

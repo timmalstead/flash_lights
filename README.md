@@ -34,7 +34,7 @@ In addition to the three main front end web languages, HTML, CSS and JavaScript;
 
 The game can run into issues with the game functions and animations if there are browser extensions running that effect JavaScript.
 
-The one seen the most is that a random pattern will be displayed and the program will think that the second light flashed is the correct one and will read the first light actually flashed as incorrect. I believe it is an interval issue.
+The one seen the most is that after a random pattern is displayed the program will think that the second light flashed in the pattern was the correct one and will read the first light actually flashed as incorrect. I believe it is an interval issue brought on by browser extensions effect on the JavaScript.
 
 If you are having problems, try disabling extensions or running in incognito mode.
 

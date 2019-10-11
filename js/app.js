@@ -30,7 +30,7 @@ $("main").on("click", (e) => {
 
 const game = {
 
-level : 2,
+level : 1,
 
 round : 1,
 
@@ -329,6 +329,7 @@ checkInput(flashToCheck) {
     else {
         audio.select.pause()
         audio.error.play()
+        patternCheckCounter = 0
         $("main").attr("class", "animated jello")
         setTimeout(() => $("main").removeClass(), 750)
         this.lives--

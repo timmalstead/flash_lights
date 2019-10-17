@@ -10,12 +10,6 @@ const $round = $("#round")
 
 const $lives = $("#lives")
 
-const pattern = []
-
-let patternCheck = []
-
-let patternCheckCounter = 0
-
 $("main").on("click", (e) => {
 
     const $arrayPosition = $(e.target).index()
@@ -29,6 +23,12 @@ $("main").on("click", (e) => {
 })
 
 const game = {
+
+pattern : [],
+
+patternCheck : [],
+
+patternCheckCounter : 0,
 
 level : 1,
 
@@ -162,7 +162,7 @@ setTiles(numberOfTiles, width, height) {
 
 displayRandomPattern() {
         let numberOfTiles = 0
-        patternCheck = []
+        this.patternCheck = []
         if (this.level === 1) {
             numberOfTiles = 4
         }
@@ -183,35 +183,35 @@ displayRandomPattern() {
 
             let random = Math.floor(Math.random() * numberOfTiles)
 
-            pattern.push(random)
-            patternCheck.push(random)
+            this.pattern.push(random)
+            this.patternCheck.push(random)
         }
 
-        if (pattern.length === 0 && patternCheck.length === 0) {
+        if (this.pattern.length === 0 && this.patternCheck.length === 0) {
             const backupRandom = Math.floor(Math.random() * numberOfTiles)
-            pattern.push(backupRandom)
-            patternCheck.push(backupRandom)
+            this.pattern.push(backupRandom)
+            this.patternCheck.push(backupRandom)
         }
 
         const patternInterval = setInterval(() => {
-            if (pattern.length === 0 && this.openingModals === true) {
+            if (this.pattern.length === 0 && this.openingModals === true) {
                 clearInterval(patternInterval)
                 this.openingModals = false
                 this.secondModal()
                 }
 
-                else if (pattern.length === 0 && this.openingModals === false) 
+                else if (this.pattern.length === 0 && this.openingModals === false) 
                     {
                     clearInterval(patternInterval)
                     this.readyToClick = true
                 }
                 else {
-                    if (pattern.length === 0) {
-                        pattern[0] = 0
+                    if (this.pattern.length === 0) {
+                        this.pattern[0] = 0
                     }
-                $("div").eq(pattern[0]).attr("class", "animated zoomIn")
+                $("div").eq(this.pattern[0]).attr("class", "animated zoomIn")
                 setTimeout(() => $("div").removeClass(), 750)
-                pattern.shift(0)
+                this.pattern.shift(0)
             }
         },  1000)
     },
@@ -261,9 +261,9 @@ finalModal() {
         setTimeout(() => $lose.css("display", "none"), 1000)
         setTimeout(() => $lose.removeClass(), 1000)
         setTimeout(() => $lose.attr("class", "modal"), 1000)
-        pattern.length = 0
-        patternCheck = []
-        patternCheckCounter = 0
+        this.pattern.length = 0
+        this.patternCheck = []
+        this.patternCheckCounter = 0
         this.firstPlay = false
         this.level = 1
         this.round = 1
@@ -283,9 +283,9 @@ finalModal() {
             setTimeout(() => $win.css("display", "none"), 1000)
             setTimeout(() => $win.removeClass(), 1000)
             setTimeout(() => $win.attr("class", "modal"), 1000)
-            pattern.length = 0
-            patternCheck = []
-            patternCheckCounter = 0
+            this.pattern.length = 0
+            this.patternCheck = []
+            this.patternCheckCounter = 0
             this.firstPlay = false
             this.level = 1
             this.round = 1
@@ -296,29 +296,29 @@ finalModal() {
 },
 
 checkInput(flashToCheck) {
-    if (flashToCheck === patternCheck[patternCheckCounter]) {
-        patternCheckCounter += 1
-            if (patternCheckCounter === patternCheck.length) {
+    if (flashToCheck === this.patternCheck[this.patternCheckCounter]) {
+        this.patternCheckCounter += 1
+            if (this.patternCheckCounter === this.patternCheck.length) {
                 this.round++
                 $round.text(this.round)
                 setTimeout(() => $("div").removeClass(), 1000)
-                patternCheck = []
-                patternCheckCounter = 0
+                this.patternCheck = []
+                this.patternCheckCounter = 0
                 game.readyToClick = false
                 if (this.round === 6){
                     audio.win.play()
                     this.level++
                     this.round = 1
-                    pattern.length = 0
-                    patternCheck = []
-                    patternCheckCounter = 0
+                    this.pattern.length = 0
+                    this.patternCheck = []
+                    this.patternCheckCounter = 0
                     this.setUpLevel()
                 }
                 else if (this.level === 3 && this.round === 6) {
                     audio.win.play()
-                    pattern.length = 0
-                    patternCheck = []
-                    patternCheckCounter = 0
+                    this.pattern.length = 0
+                    this.patternCheck = []
+                    this.patternCheckCounter = 0
                     this.finalModal()
                 }
                 else {
@@ -329,7 +329,7 @@ checkInput(flashToCheck) {
     else {
         audio.select.pause()
         audio.error.play()
-        patternCheckCounter = 0
+        this.patternCheckCounter = 0
         $("main").attr("class", "animated jello")
         setTimeout(() => $("main").removeClass(), 750)
         this.lives--

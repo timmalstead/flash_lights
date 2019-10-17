@@ -26,7 +26,7 @@ Flash. Lights. was made to pay homage to the classic children's game Simon and t
 
 3)The user can input a maximum of **ten wrong patterns** before the game ends and the user is asked if they would like to try again.
 
-4)If the user inputs five correct patterns, the game goes to the next level, with more squares for each level
+4)If the user inputs five correct patterns, the game goes to the next level, with more squares for each level.
 
 5)After progressing through all the levels, the user wins the game! They are then given the option to play again.
 
@@ -44,7 +44,7 @@ If you are having problems, try disabling extensions or running in incognito mod
 
 #### Next Steps
 
-1)Add a back end to store high scores
+1)Add a back end to store high scores.
 
 2)Add a social function to share how many times you've won.
 

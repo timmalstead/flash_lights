@@ -304,7 +304,7 @@ checkInput(flashToCheck) {
                 setTimeout(() => $("div").removeClass(), 1000)
                 this.patternCheck = []
                 this.patternCheckCounter = 0
-                game.readyToClick = false
+                this.readyToClick = false
                 if (this.round === 6){
                     audio.win.play()
                     this.level++
@@ -335,12 +335,12 @@ checkInput(flashToCheck) {
         this.lives--
         $lives.text(this.lives)
         $round.text(this.round)
-        game.readyToClick = false
+        this.readyToClick = false
         if (this.lives === 0){
             audio.error.pause()
             audio.fail.play()
             this.youLose = true
-            game.readyToClick = false
+            this.readyToClick = false
             this.finalModal()
         } else {
             this.displayRandomPattern()

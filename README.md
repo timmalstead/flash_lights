@@ -1,7 +1,7 @@
 
 ## Flash. Lights.
 
-https://timmalstead.github.io/flash_lights/
+Link to play ===> https://timmalstead.github.io/flash_lights/
 
 ###### Version 1.0
 

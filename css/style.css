@@ -2,7 +2,8 @@ body {
     background-color: #151515;
     height: 99vh;
     color: #fffff8;
-    display: flex; flex-flow: column;
+    display: flex;
+    flex-flow: column;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 2.5vw;
 }
 
@@ -14,11 +15,13 @@ body {
 main {
     width: 100%;
     flex: 1;
-    display: flex; flex-wrap: wrap; 
+    display: flex;
+    flex-wrap: wrap; 
 }
 
 footer {
-    display: flex; justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -51,7 +54,8 @@ a {
     position: fixed;
     top:20%;
     left:37%;
-    text-align: center; font-size: 1.3vw;
+    text-align: center;
+    font-size: 1.3vw;
     cursor: pointer;
 }
 
@@ -121,7 +125,8 @@ a {
         width: 72vw;
         align-self: flex-start;
         font-size: 4.5vw;
-        display: flex; justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
         position: absolute;
         top: 82vh;
     }
@@ -153,7 +158,8 @@ a {
         width: 72vw;
         align-self: flex-start;
         font-size: 4.5vw;
-        display: flex; justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
         position: absolute;
         top: 84vh;
     }
@@ -185,7 +191,8 @@ a {
         width: 72vw;
         align-self: flex-start;
         font-size: 4.5vw;
-        display: flex; justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
         position: absolute;
         top: 86vh;
     }
@@ -218,7 +225,8 @@ a {
         width: 72vw;
         align-self: flex-start;
         font-size: 4.5vw;
-        display: flex; justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
         position: absolute;
         top: 88vh;
     }
@@ -251,7 +259,8 @@ a {
         width: 72vw;
         align-self: flex-start;
         font-size: 4.5vw;
-        display: flex; justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
         position: absolute;
         top: 90vh;
     }
@@ -283,7 +292,8 @@ a {
         width: 72vw;
         align-self: flex-start;
         font-size: 4.5vw;
-        display: flex; justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
         position: absolute;
         top: 92vh;
     }

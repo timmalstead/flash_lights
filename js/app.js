@@ -1,14 +1,14 @@
-$("#titleBar").attr("class", "animated bounceInLeft")
-
-if ($(window).width() > 1040) {
-    $("footer").attr("class", "animated bounceInRight")
-}
-
 const $level = $("#level")
 
 const $round = $("#round")
 
 const $lives = $("#lives")
+
+$("#titleBar").attr("class", "animated bounceInLeft")
+
+if ($(window).width() > 1040) {
+    $("footer").attr("class", "animated bounceInRight")
+}
 
 $("main").on("click", (e) => {
 

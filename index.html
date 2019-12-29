@@ -1,60 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Timothy Malstead">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-        <title>Flash. Lights.</title>
-    </head>
-    <body>
-        <article class="modal" id="openModal">
-            <p class="modalContent">
-                WELCOME TO FLASH. LIGHTS.<br><br>
-                HOW MUCH CAN YOU REMEMBER?<br><br>
-                YOU WILL BE SHOWN A RANDOM PATTERN OF FLASHING LIGHTS AND THEN ASKED TO RECREATE IT BY CLICKING ON THE TILES IN THE SAME ORDER SHOWN.<br><br>
-                BE CAREFUL! IF YOU GET THE PATTERN WRONG, YOU'LL HAVE TO START THE ROUND AGAIN.<br><br>
-                GET IT WRONG 10 TIMES AND YOU'LL HAVE TO RESTART THE GAME!<br><br>
-                GET IT RIGHT 5 TIMES AND YOU ADVANCE TO THE NEXT LEVEL!<br><br>
-                ARE YOU READY?<br><br>
-                CLICK ME TO START!
-            </p>
-        </article>
-        <article class="modal" id="firstTurn">
-            <p class="modalContent">
-                GOT THAT? <br><br>
-                NOW IT'S YOUR TURN.<br><br>
-                CLICK THE LIGHTS IN THE SAME ORDER DISPLAYED.<br><br>
-                GOOD LUCK!<br><br>
-                CLICK ME TO START!
-            </p>
-        </article>
-        <article class="modal" id="youLose">
-            <p class="modalContent">
-                OH NO! YOU LOST!<br><br>
-                CLICK ON ME TO TRY AGAIN!<br><br>
-            </p>
-        </article>
-        <article class="modal" id="youWin">
-            <p class="modalContent">
-                OKAY PLAYER!<br><br>
-                YOU WIN!<br><br>
-                DID YOU LIKE THIS GAME? GO AHEAD AND DROP ME AN EMAIL, I'D LOVE TO HEAR FROM YOU.<br><br>
-                CLICK ON ME TO PLAY AGAIN!<br><br>
-            </p>
-        </article>
-        <img src="images/Title Bar.svg" alt="Flash. Lights." id="titleBar">
-        <main></main>
-        <footer>
-            <span id="info">LEVEL - <bdi id="level"></bdi> ROUND - <bdi id="round"></bdi> LIVES - <bdi id="lives"></bdi></span>
-            <nav>
-                <span>DESIGNED BY <a href="https://timmalstead.com" target="_blank">TIMOTHY MALSTEAD</a></span>
-                <a href="https://www.instagram.com/timmalstead/" target="_blank"><img src="images/Insta Icon.svg" alt="Mail Icon" id="instaIcon"></a>
-                <a href="mailto:timmalstead@gmail.com" target="_blank"><img src="images/Mail Icon.svg" alt="Mail Icon" id="mailIcon"></a>
-            </nav>
-        </footer>
-        <script src="js/app.js"></script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Timothy Malstead" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <title>Flash. Lights.</title>
+  </head>
+  <body>
+    <article class="modal" id="openModal">
+      <p class="modalContent">
+        WELCOME TO FLASH. LIGHTS.<br /><br />
+        HOW MUCH CAN YOU REMEMBER?<br /><br />
+        YOU WILL BE SHOWN A RANDOM PATTERN OF FLASHING LIGHTS AND THEN ASKED TO
+        RECREATE IT BY CLICKING ON THE TILES IN THE SAME ORDER SHOWN.<br /><br />
+        BE CAREFUL! IF YOU GET THE PATTERN WRONG, YOU'LL HAVE TO START THE ROUND
+        AGAIN.<br /><br />
+        GET IT WRONG 10 TIMES AND YOU'LL HAVE TO RESTART THE GAME!<br /><br />
+        GET IT RIGHT 5 TIMES AND YOU ADVANCE TO THE NEXT LEVEL!<br /><br />
+        ARE YOU READY?<br /><br />
+        CLICK ME TO START!
+      </p>
+    </article>
+    <article class="modal" id="firstTurn">
+      <p class="modalContent">
+        GOT THAT? <br /><br />
+        NOW IT'S YOUR TURN.<br /><br />
+        CLICK THE LIGHTS IN THE SAME ORDER DISPLAYED.<br /><br />
+        GOOD LUCK!<br /><br />
+        CLICK ME TO START!
+      </p>
+    </article>
+    <article class="modal" id="youLose">
+      <p class="modalContent">
+        OH NO! YOU LOST!<br /><br />
+        CLICK ON ME TO TRY AGAIN!<br /><br />
+      </p>
+    </article>
+    <article class="modal" id="youWin">
+      <p class="modalContent">
+        OKAY PLAYER!<br /><br />
+        YOU WIN!<br /><br />
+        DID YOU LIKE THIS GAME? GO AHEAD AND DROP ME AN EMAIL, I'D LOVE TO HEAR
+        FROM YOU.<br /><br />
+        CLICK ON ME TO PLAY AGAIN!<br /><br />
+      </p>
+    </article>
+    <img src="images/Title Bar.svg" alt="Flash. Lights." id="titleBar" />
+    <main></main>
+    <footer>
+      <span id="info"
+        >LEVEL - <bdi id="level"></bdi> ROUND - <bdi id="round"></bdi> LIVES -
+        <bdi id="lives"></bdi
+      ></span>
+      <nav>
+        <span
+          >DESIGNED BY
+          <a href="https://timmalstead.com" target="_blank"
+            >TIMOTHY MALSTEAD</a
+          ></span
+        >
+        <a href="https://www.instagram.com/timmalstead/" target="_blank"
+          ><img src="images/Insta Icon.svg" alt="Mail Icon" id="instaIcon"
+        /></a>
+        <a href="mailto:timmalstead@gmail.com" target="_blank"
+          ><img src="images/Mail Icon.svg" alt="Mail Icon" id="mailIcon"
+        /></a>
+      </nav>
+    </footer>
+    <script src="js/app.js"></script>
+  </body>
 </html>

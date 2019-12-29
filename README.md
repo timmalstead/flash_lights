@@ -1,7 +1,6 @@
-
 ## Flash. Lights.
 
-Link to play ===> https://timmalstead.github.io/flash_lights/
+Link to [flash.lights](https://timmalstead.github.io/flash_lights/)
 
 ###### Version 1.0
 
@@ -54,7 +53,7 @@ If you are having problems, try disabling extensions or running in incognito mod
 
 Thanks to all my fellow students in SEI CC 5 (**Cranberry Gobblers 4 Lyfe!**) for all the encouragement, opinions and laughs.
 
-Big thanks to my instructors Michael Christenson, Michael Siller, Clayton Wang and James Haff for all the help figuring out intervals, sounds and the patient explanations of why asynchronous programming *just doesn't work that way*.
+Big thanks to my instructors Michael Christenson, Michael Siller, Clayton Wang and James Haff for all the help figuring out intervals, sounds and the patient explanations of why asynchronous programming _just doesn't work that way_.
 
 Huge thanks to Daniel Eden for creating the Animate.CSS library. He made it easy to make my project dynamic.
 
